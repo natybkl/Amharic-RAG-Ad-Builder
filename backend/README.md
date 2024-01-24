@@ -10,7 +10,6 @@ This backend handles prompt generation based on user input.
 ### Prerequisites
 
 - Python (version X.X.X)
-- Flask (install via `pip install Flask`)
 - ...
 
 ### Installation
