@@ -1,16 +1,25 @@
-Amharic RAG Ad Builder Backend
+# Amharic RAG Ad Builder Backend
+
 Backend code for Amharic Ad generator.
 
-Overview
-This backend handles Amharic Ad generation based on user input.
+## Overview
 
-Getting Started
-Prerequisites
-Python (version X.X.X)
-Flask (install via pip install Flask)
-...
-Installation
-git clone <backend_repository_url>
+This backend handles prompt generation based on user input.
+
+## Getting Started
+
+### Prerequisites
+
+- Python (version 3.11.7)
+- Flask (install via `pip install fastapi`)
+- Uvicorn (install via `pip install uvicorn`)
+- ...
+
+### Installation
+
+```bash
+git clone https://github.com/group-3-collab-team/Amharic-RAG-Ad-Builder.git
 cd backend
 pip install -r requirements.txt
-python app.py
+uvicorn main:app --reload
+```
