@@ -45,20 +45,37 @@ def clean(filepath):
     # Clean English characters from the 'text' column
     df['text'] = df['text'].str.replace(r'[A-Za-z]+', '', regex=True)
 
-
-    # Save the cleaned text to a separate text file
-    cleaned_text_path = os.path.join(cleaned_files_directory, f"{os.path.splitext(filename)[0]}.txt")
-    df['text'].to_csv(cleaned_text_path, index=False, header=False)
-
-def clean_all_in_one(input_path, output_path):
-    # Specify the paths
+    return df
+   
+def clean_all_in_one():
+    # Save 'text' column to a text file
     parsed_csv_path = "../data/parsed/parsed.csv"
-    output_cleaned_csv_path = "../data/parsed/cleaned_parsed.csv"
+    output_text_path = "../data/cleaned/cleaned.txt"
 
-    
+    df = clean(parsed_csv_path)
+    df['text'].to_csv(output_text_path, index=False, header=False, sep='\t')
 
+
+def clean_individual_files():
+    # Set the directory path where parsed CSV files are stored
+    parsed_files_directory = "../data/parsed/"
+    cleaned_files_directory = "../data/cleaned/"
+
+    # Iterate through each parsed file
+    for filename in os.listdir(parsed_files_directory):
+        if filename.endswith("_parsed.csv"):
+            # Read the parsed CSV file into a DataFrame
+            filepath = os.path.join(parsed_files_directory, filename)
+
+            df = clean(filepath)
+
+            # Save the cleaned text to a separate text file
+            cleaned_text_path = os.path.join(cleaned_files_directory, f"{os.path.splitext(filename)[0]}.txt")
+            df['text'].to_csv(cleaned_text_path, index=False, header=False)
 
 
 
 if __name__ == "__main__":
     util = Util()
+    clean_all_in_one()
+    clean_individual_files()
