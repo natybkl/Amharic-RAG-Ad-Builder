@@ -1,0 +1,9 @@
+transformers
+accelerate
+bitsandbytes
+transformers
+peft
+accelerate
+trl
+datasets
+sentencepiece
