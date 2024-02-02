@@ -74,7 +74,7 @@ def data_loader(file_path: str, chunk_size: int = 500, chunk_overlap: int = 50) 
 
 #         # Populate vector database
 #         vectorstore = Weaviate.from_documents(
-#             client = client,    
+#             cembeddingslient = client,    
 #             documents = chunks,
 #             embedding = OpenAIEmbeddings(),
 #             by_text = False
