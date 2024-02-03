@@ -6,6 +6,7 @@ import { getRandomPrompt } from "../utils";
 import { FormFields, Loader } from "../components";
 import FileUpload from "../components/FileUpload";
 import { africa1 } from "../assets/index";
+import ChatPage from "./ChatPage";
 
 const CreatePost = () => {
     const navigate = useNavigate();
@@ -28,6 +29,7 @@ const CreatePost = () => {
     const [message, setMessage] = useState('');
     const [chatResponse, setchatResponse] = useState('');
 
+    console.log("selectedModel create page: ", selectedModel)
 
 
     const submitQuery= async () => {
@@ -139,7 +141,7 @@ const CreatePost = () => {
                             Select Model
                         </label>
 
-                        <div className="flex flex-col space-y-2 pl-2">
+                        <div className="flex flex-col space-y-2 pl-2 items-start">
       {models_list.map((model, index) => (
         <div key={index}>
           <input
@@ -162,33 +164,31 @@ const CreatePost = () => {
                 </div>
   {/* Main Content */}
                 <div className="flex flex-col h-full md:w-3/4 px-4 py-6 sm:w-full">
-                    {/* Texts */}
-                    <div className="sm:flex sm:flex-col md:ml-[530px]  sm:ml-[100px] sm:mt-16 sm:font-extrabold sm:text-text sm:text-[42px]">
+                    {/* <div className="sm:flex sm:flex-col md:ml-[530px]  sm:ml-[100px] sm:mt-16 sm:font-extrabold sm:text-text sm:text-[42px]">
                         <h1 className="md:ml-[100px] text-black sm:text-[40px] sm:ml-[160px]">አድባር</h1>
 
                         <div className="flex justify-center space-x-6 mt-8 ml-[-4px]">
-                            {/* First Container */}
+
                             <div className="md:text-3xl text-xl text-black bg-gray-100 rounded-lg p-6 shadow-md sm:max-w-[400px] md:max-w-[1600px]">
                                 <h2 className="font-bold ml-4">Retail</h2>
                                 <p className="text-gray-600">Generate Telegram Ad</p>
                             </div>
 
-                            {/* Second Container */}
                             <div className="md:text-3xl text-xl text-black bg-gray-100 rounded-lg p-6 shadow-md sm:max-w-[400px] md:max-w-[1600px]">
                                 <h2 className="font-bold ml-4">Automotive</h2>
                                 <p className="text-gray-600">Generate Telegram Ad</p>
                             </div>
 
-                            {/* Third Container */}
                             <div className="md:text-3xl text-xl text-black bg-gray-100 rounded-lg p-6 shadow-md sm:max-w-[400px] md:max-w-[1600px]">
                                 <h2 className="font-bold ml-4">Real Estate</h2>
                                 <p className="text-gray-600">Generate Telegram Ad</p>
                             </div>
                             </div>
-                        {/* <img src={ africa1 } alt="img" className="ml- -8 sm:w-[400px] sm:ml-[52px] md:ml-[2px] w-[600px]"/> */}
-                    </div>
-                    
+                </div> */}
 
+                    <ChatPage selectedModel={selectedModel} />
+                    
+{/* 
                     <div className="sm:flex sm:flex-col md:ml-32 sm:ml-[-40px] sm:w-3/4">
 
                         <footer className="flex-row-2 mt-2 mb-2 border-blue-800 p-4 absolute bottom-0 ml-36 w-3/4" onSubmit={handleSubmit}>
@@ -207,8 +207,6 @@ const CreatePost = () => {
                                     value={message}
                                     onChange={handleMessageChange}
                                 />
-
-      {/* Display the value (optional) */}
       
 
                                 <button
@@ -235,8 +233,10 @@ const CreatePost = () => {
                             </div>
                     </footer>
                                 
-                    </div>
+                    </div> */}
                 </div>
+
+                <ChatPage/>
 </section>
     );
 };

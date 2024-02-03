@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import { aiqem_logo } from "./assets"
 import { Home, CreatePost } from "./pages"
+import ChatPage from './pages/ChatPage'
 
 
 const App = () => {
@@ -18,6 +19,8 @@ const App = () => {
         <Routes>
           <Route path="/create" element={<CreatePost />} />
           <Route path="/" element={<Home />} />
+          {/* <Route path="/chat" element={<ChatPage />} /> */}
+
         </Routes>
       </main>
     </BrowserRouter>
