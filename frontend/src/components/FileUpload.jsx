@@ -33,15 +33,17 @@ const FileUpload = () => {
       
   return (
     <div>
-        <button onClick={handleButtonClick}>Select PDF File</button>
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept=".pdf"
-        style={{ display: 'none' }}
-        onChange={handleFileChange}
-      />
-    </div>
+    <button onClick={handleButtonClick}>
+      <span role="img" aria-label="attachment">📎</span>
+    </button>
+    <input
+      ref={fileInputRef}
+      type="file"
+      accept=".pdf"
+      style={{ display: 'none' }}
+      onChange={handleFileChange}
+    />  
+</div>
   )
 }
 
