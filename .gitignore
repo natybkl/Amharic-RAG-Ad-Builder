@@ -4,3 +4,7 @@ venv
 
 cleaned.txt
 .env
+/Llama-2-7b-hf
+/average_word_embeddings_komninos/
+frontend/node_modules
+/node_modules
